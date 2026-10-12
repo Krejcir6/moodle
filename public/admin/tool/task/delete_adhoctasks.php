@@ -43,4 +43,7 @@ $returnurl = new moodle_url('/admin/tool/task/adhoctasks.php',
 
 require_sesskey();
 \core\task\manager::delete_adhoc_task($taskid);
+
+$task->get_lock()->release();
+
 redirect($returnurl);
